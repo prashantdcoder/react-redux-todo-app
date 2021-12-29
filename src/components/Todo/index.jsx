@@ -1,17 +1,28 @@
+import { Button, TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "@mui/material";
-import { TextField } from "@mui/material";
 import { addTask } from "../../redux/actions/action";
+import PrimaryButton from "../Button/PrimaryButton";
 import "./style.css";
-import { Add } from "@mui/icons-material";
 
 export default function Todo() {
   const dispatch = useDispatch();
   const [task, setTask] = useState("");
+  const [isDisabled, setIsDisabled] = useState(true);
   const { taskList } = useSelector((state) => state.taskReducer);
+
   const onClickAddTaskHandler = () => {
     dispatch(addTask(task));
+  };
+
+  const onChangeHandler = (event) => {
+    const { value } = event.target;
+    if (value.length !== 0) {
+      setIsDisabled(false);
+      setTask(value);
+    } else {
+      setIsDisabled(true);
+    }
   };
 
   useEffect(() => {
@@ -25,14 +36,13 @@ export default function Todo() {
         id="outlined-basic"
         label="Add Task"
         variant="outlined"
-        onChange={(e) => setTask(e.target.value)}
+        onChange={onChangeHandler}
       />
-      <Button
-        className="add-button"
-        onClick={onClickAddTaskHandler}
-      >
-        Add
-      </Button>
+      <PrimaryButton
+        title="Add"
+        disabled={isDisabled}
+        onClickHandler={onClickAddTaskHandler}
+      />
     </div>
   );
 }
