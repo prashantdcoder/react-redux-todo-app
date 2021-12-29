@@ -13,6 +13,7 @@ export default function Todo() {
 
   const onClickAddTaskHandler = () => {
     dispatch(addTask(task));
+    setTask('');
   };
 
   const onChangeHandler = (event) => {
@@ -36,6 +37,7 @@ export default function Todo() {
         id="outlined-basic"
         label="Add Task"
         variant="outlined"
+        value={task}
         onChange={onChangeHandler}
       />
       <PrimaryButton

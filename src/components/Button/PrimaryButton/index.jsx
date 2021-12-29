@@ -5,12 +5,12 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
   redBackground: {
-    background: "#ff000cbf",
+    background: "#1976d2",
     color: "#fff",
 
     "&:hover": {
       color: "#fff",
-      background: "#ff000cbf",
+      background: "#1976d2",
     },
   },
 
@@ -25,7 +25,9 @@ const PrimaryButton = (props) => {
   return (
     <Button
       disabled={disabled}
-      className={`${classes.redBackground} ${disabled && classes.grayBackground}`}
+      className={`${classes.redBackground} ${
+        disabled && classes.grayBackground
+      }`}
       onClick={onClickHandler}
     >
       {title}
