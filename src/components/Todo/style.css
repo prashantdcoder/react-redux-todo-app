@@ -1,0 +1,16 @@
+.todo-container {
+  margin: 10px 0px;
+  padding: 10px 2px;
+  display: flex;
+  justify-content: center;
+}
+
+.add-input-field {
+  width: 500px;
+  margin-right: 30px !important;
+}
+
+.add-button {
+  background-color: #ff000cbf !important;
+  color: #fff !important;
+}
