@@ -1,15 +1,19 @@
 import { ADD_TASK } from "../contants/constant";
+import { TodoModel } from "../../models/TodoModel";
+
 export const initialState = {
-  taskList: [],
+  todoList: [],
 };
 
 export const taskReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TASK: {
-      const tempArray = [...state.taskList, action.task];
+      const len = state.todoList.length;
+      const todoModel = new TodoModel(len, action.task);
+      const tempArray = [...state.todoList, todoModel];
       return {
         ...state,
-        taskList: tempArray,
+        todoList: tempArray,
       };
     }
     default:
