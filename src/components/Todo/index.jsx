@@ -9,11 +9,11 @@ export default function Todo() {
   const dispatch = useDispatch();
   const [task, setTask] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
-  const { taskList } = useSelector((state) => state.taskReducer);
+  const { todoList } = useSelector((state) => state.taskReducer);
 
   const onClickAddTaskHandler = () => {
     dispatch(addTask(task));
-    setTask('');
+    setTask("");
   };
 
   const onChangeHandler = (event) => {
@@ -23,12 +23,13 @@ export default function Todo() {
       setTask(value);
     } else {
       setIsDisabled(true);
+      setTask('');
     }
   };
 
   useEffect(() => {
-    console.log("Updated task list", taskList);
-  }, [taskList]);
+    console.log("Updated task list", todoList);
+  }, [todoList]);
 
   return (
     <div className="todo-container">

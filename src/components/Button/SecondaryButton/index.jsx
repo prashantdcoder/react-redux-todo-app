@@ -5,12 +5,12 @@ import BaseButton from "../BaseButton";
 
 const useStyles = makeStyles({
   enabledBackground: {
-    background: "#1976d2",
+    background: "#cf0c0cc7",
     color: "#fff",
 
     "&:hover": {
       color: "#fff",
-      background: "#1976d2",
+      background: "#cf0c0cc7",
     },
   },
 
@@ -19,7 +19,7 @@ const useStyles = makeStyles({
   },
 });
 
-const PrimaryButton = (props) => {
+const SecondaryButton = (props) => {
   const classes = useStyles();
   const { title, disabled, onClickHandler } = props;
   return (
@@ -32,14 +32,14 @@ const PrimaryButton = (props) => {
   );
 };
 
-PrimaryButton.defaultProps = {
+SecondaryButton.defaultProps = {
   title: "Button",
   disabled: false,
 };
 
-PrimaryButton.propTypes = {
+SecondaryButton.propTypes = {
   title: PropTypes.string,
   onClickHandler: PropTypes.func,
   disabled: PropTypes.bool,
 };
-export default PrimaryButton;
+export default SecondaryButton;
