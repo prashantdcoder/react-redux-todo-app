@@ -1,5 +1,5 @@
-import { ADD_TASK, MARK_AS_COMPLETED } from "../contants/constant";
 import { TodoModel } from "../../models/TodoModel";
+import { ADD_TASK, DELETE_TASK, MARK_AS_COMPLETED } from "../contants/constant";
 
 export const initialState = {
   todoList: [],
@@ -27,7 +27,17 @@ export const taskReducer = (state = initialState, action) => {
       });
       return {
         ...state,
-        todoList: tempList
+        todoList: tempList,
+      };
+    }
+
+    case DELETE_TASK: {
+      const tempList = state.todoList.filter(
+        (item) => item.id !== action.todoId
+      );
+      return {
+        ...state,
+        todoList: tempList,
       };
     }
 

@@ -4,7 +4,7 @@ import Checkbox from "@mui/material/Checkbox";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { markAsCompleted } from "../../redux/actions/action";
+import { deleteTask, markAsCompleted } from "../../redux/actions/action";
 import PrimaryButton from "../Button/PrimaryButton";
 import SecondaryButton from "../Button/SecondaryButton";
 import ActiveStatus from "../Status/ActiveStatus";
@@ -24,6 +24,9 @@ const TodoListitem = (props) => {
     dispatch(markAsCompleted(todoId));
     setIsCheckboxDisabled(true);
   };
+  const deleteTaskHandler = (todoId) => {
+    dispatch(deleteTask(todoId));
+  };
 
   return (
     <div className="list-item-container set-completed-container">
@@ -41,7 +44,10 @@ const TodoListitem = (props) => {
       <div className="item-col width-30">{statusList[status]}</div>
       <div className="item-col width-40">
         <PrimaryButton icon={<EditIcon />} />
-        <SecondaryButton icon={<DeleteIcon />} />
+        <SecondaryButton
+          icon={<DeleteIcon />}
+          onClickHandler={() => deleteTaskHandler(id)}
+        />
       </div>
     </div>
   );
