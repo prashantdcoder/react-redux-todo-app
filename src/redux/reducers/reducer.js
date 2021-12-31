@@ -1,8 +1,14 @@
 import { TodoModel } from "../../models/TodoModel";
-import { ADD_TASK, DELETE_TASK, MARK_AS_COMPLETED } from "../contants/constant";
+import {
+  ADD_TASK,
+  DELETE_TASK,
+  MARK_AS_COMPLETED,
+  SEARCH_TASK
+} from "../contants/constant";
 
 export const initialState = {
   todoList: [],
+  filteredTodoList: [],
 };
 
 export const taskReducer = (state = initialState, action) => {
@@ -14,6 +20,7 @@ export const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         todoList: tempArray,
+        filteredTodoList: tempArray,
       };
     }
 
@@ -28,6 +35,7 @@ export const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         todoList: tempList,
+        filteredTodoList: tempList,
       };
     }
 
@@ -38,6 +46,18 @@ export const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         todoList: tempList,
+        filteredTodoList: tempList,
+      };
+    }
+
+    case SEARCH_TASK: {
+      const searchedTodoList = state.todoList.filter(
+        (item) => item.title.includes(action.task) === true 
+      );
+      console.log("searchedTodoList", searchedTodoList);
+      return {
+        ...state,
+        filteredTodoList: searchedTodoList,
       };
     }
 

@@ -1,4 +1,9 @@
-import { ADD_TASK, DELETE_TASK, MARK_AS_COMPLETED } from "../contants/constant";
+import {
+  ADD_TASK,
+  DELETE_TASK,
+  MARK_AS_COMPLETED,
+  SEARCH_TASK,
+} from "../contants/constant";
 
 export const addTask = (task) => {
   return {
@@ -18,5 +23,12 @@ export const deleteTask = (todoId) => {
   return {
     type: DELETE_TASK,
     todoId,
+  };
+};
+
+export const searchTask = (task) => {
+  return {
+    type: SEARCH_TASK,
+    task,
   };
 };
