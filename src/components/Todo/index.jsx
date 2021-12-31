@@ -1,4 +1,5 @@
-import { Button, TextField } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
+import { TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addTask } from "../../redux/actions/action";
@@ -14,6 +15,7 @@ export default function Todo() {
   const onClickAddTaskHandler = () => {
     dispatch(addTask(task));
     setTask("");
+    setIsDisabled(true);
   };
 
   const onChangeHandler = (event) => {
@@ -23,7 +25,7 @@ export default function Todo() {
       setTask(value);
     } else {
       setIsDisabled(true);
-      setTask('');
+      setTask("");
     }
   };
 
@@ -42,7 +44,7 @@ export default function Todo() {
         onChange={onChangeHandler}
       />
       <PrimaryButton
-        title="Add"
+        icon={<AddIcon />}
         disabled={isDisabled}
         onClickHandler={onClickAddTaskHandler}
       />
