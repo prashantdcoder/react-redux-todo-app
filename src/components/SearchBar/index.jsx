@@ -5,7 +5,7 @@ const SearchBar = (props) => {
   const { onSearchHandler } = props;
   return (
     <div>
-      <TextField label="Search" onChange={onSearchHandler} />
+      <TextField size="small" label="Search" onChange={onSearchHandler} />
     </div>
   );
 };

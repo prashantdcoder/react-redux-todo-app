@@ -41,6 +41,11 @@ export default function Todo() {
         label="What are you doing today?"
         variant="outlined"
         value={task}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            onClickAddTaskHandler();
+          }
+        }}
         onChange={onChangeHandler}
       />
       <PrimaryButton

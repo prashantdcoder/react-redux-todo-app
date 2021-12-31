@@ -4,5 +4,9 @@
 }
 
 .toolbar-container.justify-content {
-  justify-content: space-evenly;
+  justify-content: end;
+}
+
+.toolbar-container.justify-content > div {
+  margin-right: 20px;
 }
