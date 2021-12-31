@@ -9,7 +9,7 @@
 }
 
 .item-col {
-  height: 39px;
+  height: 60px;
 }
 
 .item-col.width-30 {
@@ -40,9 +40,8 @@
   color: #000000c2;
 }
 
-
 .title-container > span:nth-child(2) {
-    font-size: 14px;
-    font-weight: 400;
-    color: #00000099;
+  font-size: 14px;
+  font-weight: 400;
+  color: #00000099;
 }

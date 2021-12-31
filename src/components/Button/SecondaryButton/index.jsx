@@ -21,11 +21,11 @@ const useStyles = makeStyles({
 
 const SecondaryButton = (props) => {
   const classes = useStyles();
-  const { title, disabled, onClickHandler } = props;
+  const { icon, disabled, onClickHandler } = props;
   return (
     <BaseButton
       classes={classes}
-      title={title}
+      icon={icon}
       disabled={disabled}
       onClickHandler={onClickHandler}
     />
@@ -33,12 +33,11 @@ const SecondaryButton = (props) => {
 };
 
 SecondaryButton.defaultProps = {
-  title: "Button",
   disabled: false,
 };
 
 SecondaryButton.propTypes = {
-  title: PropTypes.string,
+  icon: PropTypes.any.isRequired,
   onClickHandler: PropTypes.func,
   disabled: PropTypes.bool,
 };

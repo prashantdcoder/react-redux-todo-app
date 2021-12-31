@@ -1,20 +1,19 @@
-import React from "react";
-import Button from "@mui/material/Button";
+import Fab from "@mui/material/Fab";
 import PropTypes from "prop-types";
-import { makeStyles } from "@mui/styles";
+import React from "react";
 
 const BaseButton = (props) => {
-  const { title, disabled, onClickHandler, classes } = props;
+  const { icon, disabled, onClickHandler, classes } = props;
   return (
-    <Button
+    <Fab
       disabled={disabled}
       className={`${classes.enabledBackground} ${
         disabled && classes.disabledBackground
       }`}
       onClick={onClickHandler}
     >
-      {title}
-    </Button>
+      {icon}
+    </Fab>
   );
 };
 
@@ -24,7 +23,7 @@ BaseButton.defaultProps = {
 };
 
 BaseButton.propTypes = {
-  title: PropTypes.string,
+  icon: PropTypes.any.isRequired,
   onClickHandler: PropTypes.func,
   disabled: PropTypes.bool,
 };
