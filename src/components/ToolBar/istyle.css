@@ -1,0 +1,12 @@
+.toolbar-container {
+  display: flex;
+  padding: 8px 20px;
+}
+
+.toolbar-container.justify-content {
+  justify-content: end;
+}
+
+.toolbar-container.justify-content > div {
+  margin-right: 20px;
+}
