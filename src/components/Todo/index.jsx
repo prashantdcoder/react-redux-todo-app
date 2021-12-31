@@ -38,7 +38,7 @@ export default function Todo() {
       <TextField
         className="add-input-field"
         id="outlined-basic"
-        label="Add Task"
+        label="What are you doing today?"
         variant="outlined"
         value={task}
         onChange={onChangeHandler}

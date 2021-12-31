@@ -1,4 +1,4 @@
-import { getCurrentTimeStamp } from "../utils/appUtils";
+import { getCurrentTimeStamp, convertToUpperCase } from "../utils/appUtils";
 
 export class TodoModel {
   constructor(id, title) {

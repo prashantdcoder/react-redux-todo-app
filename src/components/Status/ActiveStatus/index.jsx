@@ -19,9 +19,8 @@ const useStyles = makeStyles({
 });
 
 export default function ActiveStatus(props) {
-  const { status } = props;
   const classes = useStyles();
   return (
-    <Chip className={classes.chipBackground} label={status} color="primary" />
+    <Chip className={classes.chipBackground} label="Active" color="primary" />
   );
 }
