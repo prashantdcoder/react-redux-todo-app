@@ -2,6 +2,7 @@ import { Button } from "@mui/material";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import React from "react";
+
 const SortMenu = (props) => {
   const { open, onHandleOpenMenu, onHandleCloseMenu, anchorEl } = props;
   return (

@@ -42,7 +42,7 @@ export default function Todo() {
         variant="outlined"
         value={task}
         onKeyDown={(e) => {
-          if (e.key === "Enter") {
+          if (e.key === "Enter" && e.target.value.length !== 0) {
             onClickAddTaskHandler();
           }
         }}
