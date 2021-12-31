@@ -1,10 +1,11 @@
 import {
   ADD_TASK,
   DELETE_TASK,
+  FILTER_TASK,
   MARK_AS_COMPLETED,
   SEARCH_TASK,
   SORT_ASC,
-  SORT_DSC
+  SORT_DSC,
 } from "../contants/constant";
 
 export const addTask = (task) => {
@@ -44,5 +45,12 @@ export const sortByAsc = () => {
 export const sortByDsc = () => {
   return {
     type: SORT_DSC,
+  };
+};
+
+export const filterTask = (filterList) => {
+  return {
+    type: FILTER_TASK,
+    filterList,
   };
 };

@@ -6,3 +6,8 @@ export const getCurrentTimeStamp = () => {
 export const convertToLowerCase = (string) => {
   return string.toLowerCase();
 };
+
+export const StatusType = {
+  ACTIVE: "Active",
+  COMPLETED: "Completed",
+};

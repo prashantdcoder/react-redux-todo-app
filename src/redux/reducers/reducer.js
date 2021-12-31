@@ -1,11 +1,13 @@
 import { TodoModel } from "../../models/TodoModel";
+import { StatusType } from "../../utils/appUtils";
 import {
   ADD_TASK,
   DELETE_TASK,
+  FILTER_TASK,
   MARK_AS_COMPLETED,
   SEARCH_TASK,
   SORT_ASC,
-  SORT_DSC
+  SORT_DSC,
 } from "../contants/constant";
 
 export const initialState = {
@@ -30,7 +32,7 @@ export const taskReducer = (state = initialState, action) => {
       const id = action.todoId;
       const tempList = state.todoList.map((item) => {
         if (item.id === id) {
-          item.status = "Completed";
+          item.status = StatusType.COMPLETED;
         }
         return item;
       });
@@ -80,6 +82,19 @@ export const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredTodoList: sortByAscFilteredList,
+      };
+    }
+
+    case FILTER_TASK: {
+      const filteredList =
+        action.filterList.length > 0
+          ? state.todoList.filter((item) =>
+              action.filterList.includes(item.status)
+            )
+          : state.todoList;
+      return {
+        ...state,
+        filteredTodoList: filteredList,
       };
     }
 

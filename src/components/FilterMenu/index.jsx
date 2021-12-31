@@ -5,8 +5,9 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuItem from "@mui/material/MenuItem";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { makeStyles } from "@mui/styles";
-import React from "react";
-
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { filterTask } from "../../redux/actions/action";
 const names = ["Active", "Completed"];
 
 const useStyles = makeStyles({
@@ -23,12 +24,18 @@ const useStyles = makeStyles({
 const FilterMenu = (props) => {
   const classes = useStyles();
   const [filterName, setFilterName] = React.useState([]);
+  const dispatch = useDispatch();
   const handleChange = (event) => {
     const {
       target: { value },
     } = event;
     setFilterName(typeof value === "string" ? value.split(",") : value);
   };
+
+  useEffect(() => {
+    dispatch(filterTask(filterName));
+  }, [filterName]);
+
   return (
     <div>
       <FormControl sx={{ width: 170 }}>

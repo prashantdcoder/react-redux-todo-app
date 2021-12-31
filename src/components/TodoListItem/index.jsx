@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteTask, markAsCompleted } from "../../redux/actions/action";
+import { StatusType } from "../../utils/appUtils";
 import PrimaryButton from "../Button/PrimaryButton";
 import SecondaryButton from "../Button/SecondaryButton";
 import ActiveStatus from "../Status/ActiveStatus";
@@ -18,7 +19,7 @@ const statusList = {
 };
 const TodoListitem = (props) => {
   const { id, title, status, dateCreated } = props.todo;
-  const [isCheckboxDisabled, setIsCheckboxDisabled] = useState(false);
+  const [isCheckboxDisabled, setIsCheckboxDisabled] = useState(status === StatusType.COMPLETED);
   const dispatch = useDispatch();
   const markAsCompletedHandler = (todoId) => {
     dispatch(markAsCompleted(todoId));
@@ -34,6 +35,7 @@ const TodoListitem = (props) => {
         <Checkbox
           {...label}
           disabled={isCheckboxDisabled}
+          checked={isCheckboxDisabled}
           onChange={() => markAsCompletedHandler(id)}
         />
       </div>
