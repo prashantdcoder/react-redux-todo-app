@@ -3,7 +3,9 @@ import {
   ADD_TASK,
   DELETE_TASK,
   MARK_AS_COMPLETED,
-  SEARCH_TASK
+  SEARCH_TASK,
+  SORT_ASC,
+  SORT_DSC
 } from "../contants/constant";
 
 export const initialState = {
@@ -52,12 +54,32 @@ export const taskReducer = (state = initialState, action) => {
 
     case SEARCH_TASK: {
       const searchedTodoList = state.todoList.filter(
-        (item) => item.title.includes(action.task) === true 
+        (item) => item.title.includes(action.task) === true
       );
       console.log("searchedTodoList", searchedTodoList);
       return {
         ...state,
         filteredTodoList: searchedTodoList,
+      };
+    }
+
+    case SORT_ASC: {
+      const sortByAscFilteredList = state.todoList.sort((a, b) => {
+        return a.title < b.title ? -1 : 1;
+      });
+      return {
+        ...state,
+        filteredTodoList: sortByAscFilteredList,
+      };
+    }
+
+    case SORT_DSC: {
+      const sortByAscFilteredList = state.todoList.sort((a, b) => {
+        return a.title > b.title ? -1 : 1;
+      });
+      return {
+        ...state,
+        filteredTodoList: sortByAscFilteredList,
       };
     }
 

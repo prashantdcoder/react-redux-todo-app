@@ -3,6 +3,8 @@ import {
   DELETE_TASK,
   MARK_AS_COMPLETED,
   SEARCH_TASK,
+  SORT_ASC,
+  SORT_DSC
 } from "../contants/constant";
 
 export const addTask = (task) => {
@@ -30,5 +32,17 @@ export const searchTask = (task) => {
   return {
     type: SEARCH_TASK,
     task,
+  };
+};
+
+export const sortByAsc = () => {
+  return {
+    type: SORT_ASC,
+  };
+};
+
+export const sortByDsc = () => {
+  return {
+    type: SORT_DSC,
   };
 };
