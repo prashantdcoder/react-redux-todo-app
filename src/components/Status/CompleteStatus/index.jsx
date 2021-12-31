@@ -19,9 +19,12 @@ const useStyles = makeStyles({
 });
 
 export default function CompleteStatus(props) {
-  const { status } = props;
   const classes = useStyles();
   return (
-    <Chip className={classes.chipBackground} label={status} color="primary" />
+    <Chip
+      className={classes.chipBackground}
+      label="Completed"
+      color="primary"
+    />
   );
 }

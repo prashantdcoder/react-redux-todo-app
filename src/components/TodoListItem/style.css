@@ -38,10 +38,16 @@
   font-size: 16px;
   font-weight: 500;
   color: #000000c2;
+  text-transform: capitalize;
 }
 
 .title-container > span:nth-child(2) {
   font-size: 14px;
   font-weight: 400;
   color: #00000099;
+}
+
+.checkbox-container {
+  display: flex;
+  width: 70px;
 }
