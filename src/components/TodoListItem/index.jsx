@@ -3,8 +3,12 @@ import EditIcon from "@mui/icons-material/Edit";
 import Checkbox from "@mui/material/Checkbox";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { deleteTask, markAsCompleted } from "../../redux/actions/action";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  deleteTask,
+  markAsCompleted,
+  paginateTask,
+} from "../../redux/actions/action";
 import { StatusType } from "../../utils/appUtils";
 import PrimaryButton from "../Button/PrimaryButton";
 import SecondaryButton from "../Button/SecondaryButton";
@@ -19,14 +23,18 @@ const statusList = {
 };
 const TodoListitem = (props) => {
   const { id, title, status, dateCreated } = props.todo;
-  const [isCheckboxDisabled, setIsCheckboxDisabled] = useState(status === StatusType.COMPLETED);
+  const [isCheckboxDisabled, setIsCheckboxDisabled] = useState(
+    status === StatusType.COMPLETED
+  );
   const dispatch = useDispatch();
+  const { page } = useSelector((state) => state.taskReducer);
   const markAsCompletedHandler = (todoId) => {
     dispatch(markAsCompleted(todoId));
     setIsCheckboxDisabled(true);
   };
   const deleteTaskHandler = (todoId) => {
     dispatch(deleteTask(todoId));
+    dispatch(paginateTask(page));
   };
 
   return (

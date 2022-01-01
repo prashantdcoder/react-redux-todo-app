@@ -1,5 +1,6 @@
 import "./App.css";
 import Header from "./components/Header";
+import Paginate from "./components/Paginate";
 import Todo from "./components/Todo";
 import TodoList from "./components/TodoList";
 import ToolBar from "./components/ToolBar";
@@ -9,8 +10,9 @@ function App() {
     <div className="App">
       <Header />
       <Todo />
-      <ToolBar/>
+      <ToolBar />
       <TodoList />
+      <Paginate />
     </div>
   );
 }

@@ -5,6 +5,7 @@ import {
   DELETE_TASK,
   FILTER_TASK,
   MARK_AS_COMPLETED,
+  PAGINATE_TASK,
   SEARCH_TASK,
   SORT_ASC,
   SORT_DSC,
@@ -13,6 +14,8 @@ import {
 export const initialState = {
   todoList: [],
   filteredTodoList: [],
+  todoListCount: 0,
+  page: 0,
 };
 
 export const taskReducer = (state = initialState, action) => {
@@ -95,6 +98,19 @@ export const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredTodoList: filteredList,
+      };
+    }
+
+    case PAGINATE_TASK: {
+      const start = action.page * 10;
+      const end = start + 9;
+      let tempList = state.todoList;
+      let paginatedList = tempList.slice(start, end);
+      return {
+        ...state,
+        page: action.page,
+        filteredTodoList: paginatedList,
+        todoListCount: state.todoList.length,
       };
     }
 

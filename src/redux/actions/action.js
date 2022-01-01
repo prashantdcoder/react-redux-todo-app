@@ -3,6 +3,7 @@ import {
   DELETE_TASK,
   FILTER_TASK,
   MARK_AS_COMPLETED,
+  PAGINATE_TASK,
   SEARCH_TASK,
   SORT_ASC,
   SORT_DSC,
@@ -52,5 +53,12 @@ export const filterTask = (filterList) => {
   return {
     type: FILTER_TASK,
     filterList,
+  };
+};
+
+export const paginateTask = (page = 0) => {
+  return {
+    type: PAGINATE_TASK,
+    page,
   };
 };
