@@ -21,24 +21,18 @@ const useStyles = makeStyles({
 
 const PrimaryButton = (props) => {
   const classes = useStyles();
-  const { icon, disabled, onClickHandler } = props;
+  const { icon, onClickHandler } = props;
   return (
     <BaseButton
       classes={classes}
       icon={icon}
-      disabled={disabled}
       onClickHandler={onClickHandler}
     />
   );
 };
 
-PrimaryButton.defaultProps = {
-  disabled: false,
-};
-
 PrimaryButton.propTypes = {
   icon: PropTypes.any.isRequired,
   onClickHandler: PropTypes.func,
-  disabled: PropTypes.bool,
 };
 export default PrimaryButton;

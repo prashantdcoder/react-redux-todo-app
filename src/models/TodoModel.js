@@ -1,9 +1,14 @@
-import { convertToLowerCase, getCurrentTimeStamp, StatusType } from "../utils/appUtils";
+import {
+  convertToLowerCase,
+  getCurrentTimeStamp,
+  StatusType,
+} from "../utils/appUtils";
 
 export class TodoModel {
-  constructor(id, title) {
+  constructor(id, payload) {
     this.id = id;
-    this.title = convertToLowerCase(title);
+    this.content = payload.content;
+    this.title = convertToLowerCase(payload.title);
     this.status = StatusType.ACTIVE;
     this.dateCreated = getCurrentTimeStamp();
   }

@@ -22,7 +22,7 @@ const statusList = {
   Completed: <CompleteStatus />,
 };
 const TodoListitem = (props) => {
-  const { id, title, status, dateCreated } = props.todo;
+  const { id, title, status, dateCreated, content } = props.todo;
   const [isCheckboxDisabled, setIsCheckboxDisabled] = useState(
     status === StatusType.COMPLETED
   );
@@ -49,6 +49,7 @@ const TodoListitem = (props) => {
       </div>
       <div className="item-col width-30 title-container">
         <span>{title}</span>
+        <span>{content}</span>
         <span>{dateCreated}</span>
       </div>
       <div className="item-col width-30">{statusList[status]}</div>

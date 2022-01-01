@@ -5,16 +5,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 66px;
+  height: 94px;
 }
 
 .item-col {
-  height: 60px;
+  height: 94px;
+  border: 0px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .item-col.width-30 {
   width: 40%;
-  padding: 10px 0px;
 }
 
 .item-col.width-40 {
@@ -27,6 +30,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: baseline;
 }
 
 .title-container > span {
@@ -45,6 +49,10 @@
   font-size: 14px;
   font-weight: 400;
   color: #00000099;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .checkbox-container {

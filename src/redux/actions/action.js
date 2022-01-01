@@ -9,10 +9,10 @@ import {
   SORT_DSC,
 } from "../contants/constant";
 
-export const addTask = (task) => {
+export const addTask = (taskPayload) => {
   return {
     type: ADD_TASK,
-    task,
+    taskPayload,
   };
 };
 

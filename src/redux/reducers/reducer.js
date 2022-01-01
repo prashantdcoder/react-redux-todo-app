@@ -22,7 +22,7 @@ export const taskReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TASK: {
       const len = state.todoList.length;
-      const todoModel = new TodoModel(len, action.task);
+      const todoModel = new TodoModel(len, action.taskPayload);
       const tempArray = [...state.todoList, todoModel];
       return {
         ...state,
