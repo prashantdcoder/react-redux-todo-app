@@ -2,7 +2,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { TextField } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTask } from "../../redux/actions/action";
+import { addTask, paginateTask } from "../../redux/actions/action";
 import PrimaryButton from "../Button/PrimaryButton";
 import "./style.css";
 
@@ -14,6 +14,7 @@ export default function Todo() {
 
   const onClickAddTaskHandler = () => {
     dispatch(addTask(task));
+    dispatch(paginateTask());
     setTask("");
     setIsDisabled(true);
   };

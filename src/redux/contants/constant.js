@@ -5,3 +5,4 @@ export const SEARCH_TASK = "SEARCH_TASK";
 export const SORT_ASC = "SORT_ASC ";
 export const SORT_DSC = "SORT_DSC";
 export const FILTER_TASK = "FILTER_TASK";
+export const PAGINATE_TASK = "PAGINATE_TASK";
