@@ -6,7 +6,7 @@ import {
   paginateTask,
   searchTask,
   sortByAsc,
-  sortByDsc
+  sortByDsc,
 } from "../../redux/actions/action";
 import { convertToLowerCase } from "../../utils/appUtils";
 import PrimaryButton from "../Button/PrimaryButton";
@@ -19,7 +19,6 @@ import "./istyle.css";
 const ToolBar = () => {
   const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [task, setTask] = useState("");
   const { todoList } = useSelector((state) => state.taskReducer);
   const [openDialog, setOpenDialog] = React.useState(false);
 
@@ -29,21 +28,6 @@ const ToolBar = () => {
 
   const handleClose = () => {
     setOpenDialog(false);
-  };
-
-  const onClickAddTaskHandler = () => {
-    dispatch(addTask(task));
-    dispatch(paginateTask());
-    setTask("");
-  };
-
-  const onChangeHandler = (event) => {
-    const { value } = event.target;
-    if (value.length !== 0) {
-      setTask(value);
-    } else {
-      setTask("");
-    }
   };
 
   useEffect(() => {
@@ -73,7 +57,11 @@ const ToolBar = () => {
     <div className="toolbar-container justify-content">
       <div>
         <PrimaryButton icon={<AddIcon />} onClickHandler={handleClickOpen} />
-        <CreateDialog open={openDialog} handleClose={handleClose} />
+        <CreateDialog
+          isEdit={false}
+          open={openDialog}
+          handleClose={handleClose}
+        />
       </div>
 
       <SearchBar onSearchHandler={onSearchHandler} />

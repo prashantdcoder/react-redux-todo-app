@@ -1,5 +1,5 @@
 import { TextareaAutosize } from "@material-ui/core";
-import { Button } from "@mui/material";
+import { Cancel, Save } from "@mui/icons-material";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
@@ -8,25 +8,35 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTask } from "../../redux/actions/action";
+import { addTask, editTask, paginateTask } from "../../redux/actions/action";
+import PrimaryButton from "../Button/PrimaryButton";
+import SecondaryButton from "../Button/SecondaryButton";
 import "./style.css";
+import PropTypes from "prop-types";
 
 const CreateDialog = (props) => {
-  const { open, handleClose } = props;
+  const { open, handleClose, isEdit, formData } = props;
   const dispatch = useDispatch();
   const [form, setForm] = useState({
-    title: "",
-    content: "The text-overflow property specifies how overflowed content that is not displayed should be signaled to the user. It can be clipped, display an ellipsis (...), or display a custom string.",
-    isValid: true,
+    title: isEdit === true ? formData.title : "",
+    content: isEdit === true ? formData.content : "",
+    id: formData?.id,
   });
-
+  const isFormValid = form.title.length !== 0 && form.content.length !== 0;
+  const dialogHeading = isEdit ? "Edit Task" : "Add Task";
   const onSubmitHandler = () => {
     dispatch(addTask(form));
+    dispatch(paginateTask());
     handleClose();
   };
+  const onEditHandler = () => {
+    dispatch(editTask(form));
+    handleClose();
+  };
+
   return (
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>Add Task</DialogTitle>
+      <DialogTitle>{dialogHeading}</DialogTitle>
       <DialogContent>
         <DialogContentText>What are you doing today?</DialogContentText>
         <div className="create-dialog-container">
@@ -37,22 +47,22 @@ const CreateDialog = (props) => {
             label="Title"
             type="email"
             variant="outlined"
+            defaultValue={form.title}
             onBlur={(e) => {
               setForm({
                 ...form,
                 title: e.target.value,
-                isValid: e.target.value.length !== 0,
               });
             }}
           />
           <TextareaAutosize
             aria-label="Please explain it in brief"
             placeholder="Please explain it in brief"
+            defaultValue={form.content}
             onBlur={(e) => {
               setForm({
                 ...form,
                 content: e.target.value,
-                isValid: e.target.value.length !== 0,
               });
             }}
             style={{
@@ -65,15 +75,34 @@ const CreateDialog = (props) => {
         </div>
       </DialogContent>
       <DialogActions>
-        <Button style={{ color: "#ad0505" }} onClick={handleClose}>
-          Cancel
-        </Button>
-        <Button disabled={!form.isValid} onClick={onSubmitHandler}>
-          Save
-        </Button>
+        <SecondaryButton icon={<Cancel />} onClickHandler={handleClose} />
+        {isEdit ? (
+          <PrimaryButton
+            disabled={!isFormValid}
+            icon={<Save />}
+            onClickHandler={onEditHandler}
+          />
+        ) : (
+          <PrimaryButton
+            disabled={!isFormValid}
+            icon={<Save />}
+            onClickHandler={onSubmitHandler}
+          />
+        )}
       </DialogActions>
     </Dialog>
   );
+};
+
+CreateDialog.defaultProps = {
+  isEdit: false,
+};
+
+CreateDialog.propTypes = {
+  open: PropTypes.bool,
+  handleClose: PropTypes.func,
+  isEdit: PropTypes.bool,
+  formData: PropTypes.object,
 };
 
 export default CreateDialog;

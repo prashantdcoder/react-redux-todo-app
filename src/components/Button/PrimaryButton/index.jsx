@@ -21,9 +21,10 @@ const useStyles = makeStyles({
 
 const PrimaryButton = (props) => {
   const classes = useStyles();
-  const { icon, onClickHandler } = props;
+  const { icon, onClickHandler, disabled } = props;
   return (
     <BaseButton
+      disabled={disabled}
       classes={classes}
       icon={icon}
       onClickHandler={onClickHandler}

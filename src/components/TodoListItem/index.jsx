@@ -14,6 +14,7 @@ import PrimaryButton from "../Button/PrimaryButton";
 import SecondaryButton from "../Button/SecondaryButton";
 import ActiveStatus from "../Status/ActiveStatus";
 import CompleteStatus from "../Status/CompleteStatus";
+import CreateDialog from "../CreateDialog";
 import "./style.css";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
@@ -26,6 +27,7 @@ const TodoListitem = (props) => {
   const [isCheckboxDisabled, setIsCheckboxDisabled] = useState(
     status === StatusType.COMPLETED
   );
+  const [openDialog, setOpenDialog] = React.useState(false);
   const dispatch = useDispatch();
   const { page } = useSelector((state) => state.taskReducer);
   const markAsCompletedHandler = (todoId) => {
@@ -54,7 +56,16 @@ const TodoListitem = (props) => {
       </div>
       <div className="item-col width-30">{statusList[status]}</div>
       <div className="item-col width-40">
-        <PrimaryButton icon={<EditIcon />} />
+        <PrimaryButton
+          onClickHandler={() => setOpenDialog(true)}
+          icon={<EditIcon />}
+        />
+        <CreateDialog
+          open={openDialog}
+          isEdit={true}
+          formData={{ title: title, content: content, id: id }}
+          handleClose={() => setOpenDialog(false)}
+        />
         <SecondaryButton
           icon={<DeleteIcon />}
           onClickHandler={() => deleteTaskHandler(id)}
