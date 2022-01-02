@@ -1,6 +1,7 @@
 import {
   ADD_TASK,
   DELETE_TASK,
+  EDIT_TASK,
   FILTER_TASK,
   MARK_AS_COMPLETED,
   PAGINATE_TASK,
@@ -9,10 +10,10 @@ import {
   SORT_DSC,
 } from "../contants/constant";
 
-export const addTask = (task) => {
+export const addTask = (taskPayload) => {
   return {
     type: ADD_TASK,
-    task,
+    taskPayload,
   };
 };
 
@@ -60,5 +61,12 @@ export const paginateTask = (page = 0) => {
   return {
     type: PAGINATE_TASK,
     page,
+  };
+};
+
+export const editTask = (payLoad) => {
+  return {
+    type: EDIT_TASK,
+    payLoad,
   };
 };

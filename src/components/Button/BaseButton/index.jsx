@@ -6,6 +6,7 @@ const BaseButton = (props) => {
   const { icon, disabled, onClickHandler, classes } = props;
   return (
     <Fab
+      size="small"
       disabled={disabled}
       className={`${classes.enabledBackground} ${
         disabled && classes.disabledBackground

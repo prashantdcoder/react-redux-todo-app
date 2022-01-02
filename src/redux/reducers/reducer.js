@@ -3,6 +3,7 @@ import { StatusType } from "../../utils/appUtils";
 import {
   ADD_TASK,
   DELETE_TASK,
+  EDIT_TASK,
   FILTER_TASK,
   MARK_AS_COMPLETED,
   PAGINATE_TASK,
@@ -22,12 +23,29 @@ export const taskReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TASK: {
       const len = state.todoList.length;
-      const todoModel = new TodoModel(len, action.task);
+      const todoModel = new TodoModel(len, action.taskPayload);
       const tempArray = [...state.todoList, todoModel];
       return {
         ...state,
         todoList: tempArray,
         filteredTodoList: tempArray,
+      };
+    }
+
+    case EDIT_TASK: {
+      const tempList = state.todoList.map((item) => {
+        const { id, title, content } = action.payLoad;
+        if (item.id === id) {
+          item.title = title;
+          item.content = content;
+        }
+        return item;
+      });
+
+      return {
+        ...state,
+        todoList: tempList,
+        filteredTodoList: tempList,
       };
     }
 
