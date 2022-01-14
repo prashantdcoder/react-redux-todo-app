@@ -6,6 +6,7 @@ import {
   MARK_AS_COMPLETED,
   PAGINATE_TASK,
   SEARCH_TASK,
+  SET_VIEW,
   SORT_ASC,
   SORT_DSC,
 } from "../contants/constant";
@@ -68,5 +69,12 @@ export const editTask = (payLoad) => {
   return {
     type: EDIT_TASK,
     payLoad,
+  };
+};
+
+export const setView = (view) => {
+  return {
+    type: SET_VIEW,
+    view,
   };
 };

@@ -1,0 +1,20 @@
+.home-container {
+  color: #fff;
+  left: 50%;
+  width: 600px;
+  height: 590px;
+  top: 10%;
+  margin: 0 auto;
+  display: block;
+  border: 1px solid #fff;
+}
+
+.add-todo-container {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-input {
+  border: none;
+}

@@ -7,3 +7,4 @@ export const SORT_DSC = "SORT_DSC";
 export const FILTER_TASK = "FILTER_TASK";
 export const PAGINATE_TASK = "PAGINATE_TASK";
 export const EDIT_TASK = "EDIT_TASK ";
+export const SET_VIEW = "SET_VIEW ";
