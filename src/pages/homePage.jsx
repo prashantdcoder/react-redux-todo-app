@@ -1,5 +1,6 @@
 import React from "react";
 import AddTodo from "../components/AddTodo";
+import Header from "../components/Header";
 import TodoList from "../components/TodoList";
 import "./style.css";
 
@@ -13,9 +14,17 @@ export const ColorPalette = {
 };
 const HomePage = () => {
   return (
-    <div className="home-container">
-      <AddTodo />
-      <TodoList />
+    <div className="home">
+      <div className="header-container">
+        <Header />
+      </div>
+
+      <div className="home-container">
+        <AddTodo />
+        <TodoList />
+      </div>
+
+      <div className="footer-container"></div>
     </div>
   );
 };

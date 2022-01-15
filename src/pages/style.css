@@ -6,18 +6,19 @@
   --pink: #c3073f;
   --white: #fff;
 }
-
+.home {
+  height: auto;
+  width: 100%;
+  position: absolute;
+}
 .home-container {
   color: #fff;
-  left: 30%;
   width: 600px;
-  right: 30%;
-  height: 545px;
+  height: 485px;
   border: 1px solid #4e4e50;
   border-radius: 4px;
-  top: 4%;
-  position: absolute;
-  margin: auto;
+  top: 15%;
+  margin: 17px auto;
   padding: 15px;
 }
 
@@ -74,6 +75,7 @@
 .date {
   font-size: 14px;
   font-weight: 300;
+  color: #4e4e50;
 }
 
 .btn-container {
@@ -84,18 +86,21 @@
   border-left: 8px solid #1e1ecfbf;
 }
 
-.border-left-white {
-  border-left: 8px solid #f4eff0;
-}
-
 .todo-textfield-container {
   width: 460px;
+}
+
+.app-bar {
+  background-color: var(--pink);
 }
 /*===========================Media Queries======================================*/
 
 /* Extra small devices (phones, 600px and down) */
 
 @media only screen and (max-width: 320px) {
+  .home {
+    width: 324px;
+  }
   .home-container {
     border: 1px solid yellow;
     left: 0%;
@@ -141,14 +146,23 @@
 }
 
 @media (min-width: 321px) and (max-width: 375px) {
+  .home {
+    width: 600px;
+  }
+
   .home-container {
     border: 1px solid orange;
+    width: 587px;
   }
 }
 
 @media (min-width: 376px) and (max-width: 425px) {
+  .home {
+    width: 600px;
+  }
   .home-container {
     border: 1px solid red;
+    width: 590px;
   }
 }
 
@@ -162,16 +176,13 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991px) {
   .home-container {
-    left: 11%;
-    background: blue;
-    height: 472px;
+    border: 1px solid blue;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199px) {
   .home-container {
-    background: yellow;
     height: 469px;
     left: 25%;
     top: 4%;

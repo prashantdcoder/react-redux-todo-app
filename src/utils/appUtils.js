@@ -1,5 +1,3 @@
-import { string } from "prop-types";
-
 export const getCurrentTimeStamp = () => {
   const date = new Date();
   return date.toLocaleDateString();
@@ -28,3 +26,10 @@ export const getRandomColor = () => {
   ];
   return items[Math.floor(Math.random() * items.length)];
 };
+
+export const CommonStyles={
+  fontFamily: '"Saira Condensed", sans-serif',
+  color: {
+    pink: '#c43a3f',
+  }
+}
