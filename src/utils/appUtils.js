@@ -31,5 +31,6 @@ export const CommonStyles={
   fontFamily: '"Saira Condensed", sans-serif',
   color: {
     pink: '#c43a3f',
+    white:'#fff'
   }
 }

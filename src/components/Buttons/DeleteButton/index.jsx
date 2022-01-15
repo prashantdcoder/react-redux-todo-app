@@ -13,7 +13,7 @@ const DeleteButton = () => {
   const styles = {
     color: colorPlate.white,
     backgroundColor: colorPlate.lightMaroon,
-    height: 50,
+    height: 48,
     fontFamily: ["Saira Condensed", "sans-serif"].join(","),
     "&:hover": {
       color: colorPlate.white,

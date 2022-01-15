@@ -25,7 +25,7 @@ TodoButton.defaultProps = {
   styles: {
     color: colorPlate.pink,
     backgroundColor: colorPlate.white,
-    height: 50,
+    height: 48,
     fontFamily: ["Saira Condensed", "sans-serif"].join(","),
     "&:hover": {
       color: colorPlate.pink,

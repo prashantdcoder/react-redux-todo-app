@@ -6,7 +6,6 @@ import Typography from "@mui/material/Typography";
 import { withStyles } from "@mui/styles";
 import PropTypes from "prop-types";
 import React from "react";
-import { CommonStyles } from "../../utils/appUtils";
 
 const styles = {
   appBarRoot: {

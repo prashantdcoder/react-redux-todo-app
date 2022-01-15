@@ -1,11 +1,25 @@
-import { ThumbsUpDown, ThumbUpSharp } from "@mui/icons-material";
+import { Tooltip } from "@material-ui/core";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import Checkbox from "@mui/material/Checkbox";
+import Chip from "@mui/material/Chip";
+import { withStyles } from "@mui/styles";
 import React from "react";
 import { ColorPalette } from "../../pages/homePage";
 import DeleteButton from "../Buttons/DeleteButton";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import { Tooltip } from "@material-ui/core";
-const TodoListItem = () => {
+import PropTypes from "prop-types";
+
+const styles = {
+  chipRoot: {
+    fontFamily: `'Saira Condensed', sans-serif !important`,
+    fontSize: 14,
+    background: "#948b8bb8 !important",
+    color: "#fff !important",
+    width: 85,
+  },
+};
+
+const TodoListItem = (props) => {
+  const { classes } = props;
   return (
     <div className="item-container border-left-blue">
       <div className="item width_20_percent width-checkbox">
@@ -41,10 +55,7 @@ const TodoListItem = () => {
         </Tooltip>
 
         <div className="date">
-          <span>
-            <CalendarTodayIcon style={{ fontSize: 14 }} />
-          </span>
-          <span>14 Jan 2021</span>
+          <Chip className={classes.chipRoot} label="High Priority" />
         </div>
       </div>
       <div className="item width_20_percent delete-btn-padding">
@@ -54,4 +65,8 @@ const TodoListItem = () => {
   );
 };
 
-export default TodoListItem;
+TodoListItem.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(TodoListItem);

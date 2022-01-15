@@ -6,8 +6,6 @@ const TofoList = () => {
     <div className="todolist-container">
       <TodoListItem />
       <TodoListItem />
-      <TodoListItem />
-      <TodoListItem />
     </div>
   );
 };

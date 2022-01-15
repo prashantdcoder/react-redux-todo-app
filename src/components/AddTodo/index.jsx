@@ -1,7 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { InputBase } from "@mui/material";
+import { Button, InputBase } from "@mui/material";
 import React from "react";
 import { ColorPalette } from "../../pages/homePage";
+import ModalButton from "../Buttons/ModalButton";
 import TodoButton from "../Buttons/TodoButton";
 
 const useStyles = makeStyles((theme) => ({
@@ -9,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
     border: `1px solid ${ColorPalette.gray}`,
     borderRadius: "2px",
     padding: "7px",
-    width: "100%",
+    width: "348px",
   },
   myButton: {
     padding: "30px",
@@ -27,6 +28,10 @@ const AddTodo = () => {
           placeholder="Add today's task"
           className={classes.textField}
         />
+      </div>
+
+      <div className="category-container">
+        <ModalButton title="Select Category" />
       </div>
 
       <div className="btn-container">
