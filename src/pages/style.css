@@ -31,7 +31,10 @@
 .todolist-container {
   max-height: 590px;
   border: 0px solid;
-  height: 357px;
+  height: 327px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0px 4px 0px 0px;
 }
 
 .item-container {
@@ -93,6 +96,24 @@
 .app-bar {
   background-color: var(--pink);
 }
+
+.todolist-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+
+/* Track */
+.todolist-container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+.todolist-container::-webkit-scrollbar-thumb {
+  background: var(--pink); 
+  border-radius: 10px;
+}
+
 /*===========================Media Queries======================================*/
 
 /* Extra small devices (phones, 600px and down) */
@@ -105,7 +126,7 @@
     border: 1px solid yellow;
     left: 0%;
     width: 320px;
-    height: 520px;
+    height: 508px;
   }
 
   .todo-textfield-container {
