@@ -1,20 +1,192 @@
+:root {
+  --black: #0e1424;
+  --gray: #4e4e50;
+  --darkMaroon: #6f2232;
+  --lightMaroon: #950740;
+  --pink: #c3073f;
+  --white: #fff;
+}
+
 .home-container {
   color: #fff;
-  left: 50%;
+  left: 30%;
   width: 600px;
-  height: 590px;
-  top: 10%;
-  margin: 0 auto;
-  display: block;
-  border: 1px solid #fff;
+  right: 30%;
+  height: 545px;
+  border: 1px solid #4e4e50;
+  border-radius: 4px;
+  top: 4%;
+  position: absolute;
+  margin: auto;
+  padding: 15px;
 }
 
 .add-todo-container {
-  padding: 15px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 50px;
 }
 
-.todo-input {
-  border: none;
+.todolist-container {
+  max-height: 590px;
+  border: 0px solid;
+  height: 357px;
+}
+
+.item-container {
+  border: 1px solid #4e4e50;
+  padding: 0px 0px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 4px;
+}
+
+.item-container > .item {
+  width: 100%;
+  padding: 10px 18px;
+}
+
+.item.width_20_percent {
+  width: 20%;
+}
+
+.item.justify_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.task {
+  font-size: 20px;
+  text-transform: capitalize;
+  color: var(--lightMaroon);
+  white-space: nowrap;
+  width: 345px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.task:hover {
+  color: var(--pink);
+}
+
+.date {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.btn-container {
+  width: 85px;
+}
+
+.border-left-blue {
+  border-left: 8px solid #1e1ecfbf;
+}
+
+.border-left-white {
+  border-left: 8px solid #f4eff0;
+}
+
+.todo-textfield-container {
+  width: 460px;
+}
+/*===========================Media Queries======================================*/
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 320px) {
+  .home-container {
+    border: 1px solid yellow;
+    left: 0%;
+    width: 320px;
+    height: 520px;
+  }
+
+  .todo-textfield-container {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .btn-container {
+    width: 100%;
+  }
+
+  .btn-container > button {
+    width: 100%;
+  }
+
+  .item-container > .item {
+    width: 178px;
+    padding: 10px 3px;
+    border: 0px solid;
+  }
+
+  .task {
+    width: auto;
+  }
+  .item.width-checkbox {
+    width: 50px;
+  }
+
+  .item.width-data {
+    width: 150px;
+  }
+
+  .item.delete-btn-padding {
+    padding: 12px 7px;
+  }
+  .add-todo-container {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+  .home-container {
+    border: 1px solid orange;
+  }
+}
+
+@media (min-width: 376px) and (max-width: 425px) {
+  .home-container {
+    border: 1px solid red;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media (min-width: 601px) and (max-width: 767px) {
+  .home-container {
+    background: green;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .home-container {
+    left: 11%;
+    background: blue;
+    height: 472px;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .home-container {
+    background: yellow;
+    height: 469px;
+    left: 25%;
+    top: 4%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media (min-width: 1200px) and (max-width: 1440px) {
+  .home-container {
+    background: transparent;
+  }
+}
+
+@media (min-width: 1441px) {
+  .home-container {
+    background: var(--pink);
+  }
 }
