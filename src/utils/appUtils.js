@@ -27,10 +27,14 @@ export const getRandomColor = () => {
   return items[Math.floor(Math.random() * items.length)];
 };
 
-export const CommonStyles={
+export const CommonStyles = {
   fontFamily: '"Saira Condensed", sans-serif',
   color: {
-    pink: '#c43a3f',
-    white:'#fff'
-  }
-}
+    pink: "#c43a3f",
+    white: "#fff",
+    darkMaroon: "#6f2232",
+    lighMaroon: "#950740",
+    black: "#0e1424",
+    gradient: 'linear-gradient(80deg, #c43a3f 30%, #950740 50%)'
+  },
+};

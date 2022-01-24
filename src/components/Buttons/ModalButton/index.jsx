@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { CommonStyles } from "../../../utils/appUtils";
-import TodoButton from "../TodoButton";
+import PrimaryButton from "../PrimaryButton";
 
 const ModalButton = (props) => {
-  const { title } = props;
+  const { title, onClickHandler } = props;
   const styles = {
     color: CommonStyles.color.white,
     backgroundColor: "transparent",
@@ -12,11 +12,18 @@ const ModalButton = (props) => {
     height: 48,
     fontFamily: ["Saira Condensed", "sans-serif"].join(","),
   };
-  return <TodoButton title={title} styles={styles} />;
+  return (
+    <PrimaryButton
+      onClickHandler={onClickHandler}
+      title={title}
+      styles={styles}
+    />
+  );
 };
 
 ModalButton.propTypes = {
   title: PropTypes.string.isRequired,
+  onClickHandler: PropTypes.func,
 };
 
 export default ModalButton;

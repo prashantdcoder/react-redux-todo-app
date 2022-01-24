@@ -1,9 +1,10 @@
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, InputBase } from "@mui/material";
+import { InputBase } from "@mui/material";
 import React from "react";
 import { ColorPalette } from "../../pages/homePage";
 import ModalButton from "../Buttons/ModalButton";
-import TodoButton from "../Buttons/TodoButton";
+import PrimaryButton from "../Buttons/PrimaryButton";
+import CategoryModal from "../CategoryModal";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -19,6 +20,21 @@ const useStyles = makeStyles((theme) => ({
 
 const AddTodo = () => {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState("Dione");
+
+  const handleClickListItem = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (newValue) => {
+    setOpen(false);
+
+    if (newValue) {
+      setValue(newValue);
+    }
+  };
+
   return (
     <div className="add-todo-container">
       <div className="todo-textfield-container">
@@ -31,11 +47,12 @@ const AddTodo = () => {
       </div>
 
       <div className="category-container">
-        <ModalButton title="Select Category" />
+        <ModalButton onClickHandler={handleClickListItem} title="Select Category" />
+        <CategoryModal open={open} onClose={handleClose} value={value} />
       </div>
 
       <div className="btn-container">
-        <TodoButton title="add task" />
+        <PrimaryButton title="add task" />
       </div>
     </div>
   );

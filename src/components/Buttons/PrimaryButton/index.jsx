@@ -11,16 +11,17 @@ const colorPlate = {
   pink: "#c3073f",
   white: "#fff",
 };
-const TodoButton = (props) => {
-  const { title, styles } = props;
+
+const PrimaryButton = (props) => {
+  const { title, styles, onClickHandler } = props;
   const TaskButton = styled(Button)(({ theme }) => ({
     ...styles,
   }));
 
-  return <TaskButton>{title}</TaskButton>;
+  return <TaskButton onClick={onClickHandler}>{title}</TaskButton>;
 };
 
-TodoButton.defaultProps = {
+PrimaryButton.defaultProps = {
   title: "Button",
   styles: {
     color: colorPlate.pink,
@@ -34,9 +35,10 @@ TodoButton.defaultProps = {
   },
 };
 
-TodoButton.propTypes = {
+PrimaryButton.propTypes = {
   title: PropTypes.string,
   styles: PropTypes.object,
+  onClickHandler: PropTypes.func,
 };
 
-export default TodoButton;
+export default PrimaryButton;

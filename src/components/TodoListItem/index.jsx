@@ -1,12 +1,11 @@
 import { Tooltip } from "@material-ui/core";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import Checkbox from "@mui/material/Checkbox";
 import Chip from "@mui/material/Chip";
 import { withStyles } from "@mui/styles";
+import PropTypes from "prop-types";
 import React from "react";
 import { ColorPalette } from "../../pages/homePage";
-import DeleteButton from "../Buttons/DeleteButton";
-import PropTypes from "prop-types";
+import SecondaryButton from "../Buttons/SecondaryButton";
 
 const styles = {
   chipRoot: {
@@ -59,7 +58,7 @@ const TodoListItem = (props) => {
         </div>
       </div>
       <div className="item width_20_percent delete-btn-padding">
-        <DeleteButton />
+        <SecondaryButton />
       </div>
     </div>
   );

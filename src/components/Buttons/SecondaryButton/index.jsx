@@ -1,5 +1,6 @@
+import PropTypes from "prop-types";
 import React from "react";
-import TodoButton from "../TodoButton";
+import PrimaryButton from "../PrimaryButton";
 
 const colorPlate = {
   black: "#0e1424",
@@ -9,7 +10,8 @@ const colorPlate = {
   pink: "#c3073f",
   white: "#fff",
 };
-const DeleteButton = () => {
+const SecondaryButton = (props) => {
+  const { title, clickHandler } = props;
   const styles = {
     color: colorPlate.white,
     backgroundColor: colorPlate.lightMaroon,
@@ -20,7 +22,16 @@ const DeleteButton = () => {
       backgroundColor: colorPlate.pink,
     },
   };
-  return <TodoButton title="Delete" styles={styles} />;
+  return <PrimaryButton title={title} onClickHandler={clickHandler} styles={styles} />;
 };
 
-export default DeleteButton;
+SecondaryButton.defaultProps = {
+  title: "Delete",
+};
+
+SecondaryButton.propTypes = {
+  title: PropTypes.string,
+  clickHandler: PropTypes.func,
+};
+
+export default SecondaryButton;
